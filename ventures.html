@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <title>ANISH ENTERPRISES — Ventures · Digital Ecosystem</title>
+  
+  <!-- Favicon (Tab Icon) -->
+  <link rel="icon" type="image/png" href="Anish-Logo.png">
+  
+  <!-- Font Awesome 6 (Brands + Solid + Regular) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000000;
+      background-image: 
+        repeating-linear-gradient(0deg, rgba(3, 255, 200, 0.02) 0px, rgba(3, 255, 200, 0.02) 1px, transparent 1px, transparent 8px),
+        repeating-linear-gradient(90deg, rgba(3, 255, 200, 0.02) 0px, rgba(3, 255, 200, 0.02) 1px, transparent 1px, transparent 8px);
+      color: #dddddd;
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      position: relative;
+    }
+
+    /* Animated scanning line */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: linear-gradient(0deg, transparent 0%, rgba(3,255,200,0.03) 50%, transparent 100%);
+      animation: scan 8s linear infinite;
+      z-index: 999;
+    }
+
+    @keyframes scan {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100%); }
+    }
+
+    :root {
+      --accent: #03ffc8;
+      --accent-glow: rgba(3, 255, 200, 0.3);
+      --accent-dark: #02cc9e;
+      --blink-red: #ff0033;
+      --blink-green: #00ff66;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    h1, h2, h3 {
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, rgba(3,255,200,0.1), transparent);
+      animation: subtlePulse 3s infinite;
+    }
+
+    @keyframes subtlePulse {
+      0% { border-left-color: var(--accent); text-shadow: 0 0 0px transparent; }
+      50% { border-left-color: #02ffc0; text-shadow: 0 0 4px var(--accent-glow); }
+      100% { border-left-color: var(--accent); text-shadow: 0 0 0px transparent; }
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .header-main {
+      padding: 1.8rem 0 1rem 0;
+      border-bottom: 1px solid #1f2a2a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      position: relative;
+    }
+
+    .hacker-led {
+      position: absolute;
+      top: -6px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: repeating-linear-gradient(90deg, 
+        #ff0033 0px, #ff0033 20px, 
+        #00ff66 20px, #00ff66 40px,
+        #03ffc8 40px, #03ffc8 60px,
+        #ffaa00 60px, #ffaa00 80px);
+      animation: blinkMove 0.8s step-end infinite;
+      box-shadow: 0 0 8px rgba(255,0,51,0.6);
+    }
+
+    @keyframes blinkMove {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; filter: brightness(1.2); }
+    }
+
+    .blink-dot {
+      position: fixed;
+      top: 12px;
+      right: 20px;
+      width: 12px;
+      height: 12px;
+      background: var(--blink-green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--blink-green);
+      animation: blinkDot 1.2s infinite;
+      z-index: 1000;
+    }
+
+    @keyframes blinkDot {
+      0%, 100% { opacity: 1; background: #00ff66; box-shadow: 0 0 12px #00ff66; }
+      50% { opacity: 0.3; background: #ff0033; box-shadow: 0 0 4px #ff0033; }
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .brand-icon {
+      font-size: 2.8rem;
+      color: var(--accent);
+      filter: drop-shadow(0 0 6px var(--accent-glow));
+      transition: transform 0.2s ease;
+      animation: floatIcon 3s ease-in-out infinite;
+    }
+
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-3px); }
+    }
+
+    .brand-name {
+      font-size: 1.7rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #FFFFFF 20%, var(--accent) 80%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 6px rgba(3,255,200,0.3);
+      animation: glitch 5s infinite;
+    }
+
+    @keyframes glitch {
+      0%, 100% { text-shadow: 0.02em 0 0 rgba(255,0,0,0.3), -0.02em 0 0 rgba(0,255,255,0.3); }
+      25% { text-shadow: -0.02em 0 0 rgba(255,0,0,0.3), 0.02em 0 0 rgba(0,255,255,0.3); }
+      50% { text-shadow: 0.02em 0.02em 0 rgba(255,0,0,0.2), -0.02em -0.02em 0 rgba(0,255,255,0.2); }
+      75% { text-shadow: -0.02em 0.01em 0 rgba(255,0,0,0.2), 0.02em -0.01em 0 rgba(0,255,255,0.2); }
+    }
+
+    .sys-status {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      background: #0f1a1a;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      border-left: 2px solid var(--accent);
+      color: var(--accent);
+    }
+
+    /* Navigation */
+    .nav-bar, .bottom-nav-bar {
+      background: #050505cc;
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #1c2a2a;
+      border-top: 1px solid #1c2a2a;
+      margin: 0.5rem 0 1.5rem 0;
+      padding: 0.9rem 0;
+      z-index: 10;
+    }
+
+    .bottom-nav-bar {
+      margin: 3rem 0 1rem 0;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+      transition: all 0.2s;
+      padding: 0.4rem 0;
+      border-bottom: 2px solid transparent;
+      color: #c0c0c0;
+      position: relative;
+    }
+
+    .nav-links li a::before {
+      content: ">";
+      opacity: 0;
+      margin-right: 4px;
+      transition: opacity 0.2s;
+      color: var(--accent);
+    }
+
+    .nav-links li a:hover::before, .nav-links li a.active::before {
+      opacity: 1;
+    }
+
+    .nav-links li a:hover, .nav-links li a.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+      text-shadow: 0 0 6px var(--accent-glow);
+    }
+
+    /* Ventures Cards Grid */
+    .ventures-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .venture-card {
+      background: rgba(5, 5, 5, 0.8);
+      backdrop-filter: blur(2px);
+      border-radius: 28px;
+      border: 1px solid #1a2a2a;
+      padding: 1.5rem;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .venture-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 20px rgba(3,255,200,0.2);
+      transform: translateY(-3px);
+    }
+
+    .venture-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .venture-icon {
+      font-size: 2.5rem;
+      color: var(--accent);
+      filter: drop-shadow(0 0 4px var(--accent-glow));
+    }
+
+    .venture-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.5px;
+    }
+
+    .venture-short-desc {
+      color: #cccccc;
+      margin: 0.8rem 0;
+      line-height: 1.5;
+    }
+
+    .venture-link {
+      display: inline-block;
+      margin: 0.5rem 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      background: #0a1a1a;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      border-left: 2px solid var(--accent);
+    }
+
+    .venture-link a {
+      text-decoration: none;
+      color: var(--accent);
+    }
+
+    .venture-link a:hover {
+      text-decoration: underline;
+    }
+
+    .expand-icon {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      color: var(--accent);
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+    }
+
+    .venture-full-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out, padding 0.3s;
+      background: rgba(0, 20, 15, 0.4);
+      border-radius: 20px;
+      margin-top: 0;
+      padding: 0 1rem;
+      border-left: 2px solid var(--accent);
+    }
+
+    .venture-card.expanded .venture-full-details {
+      max-height: 800px; /* enough for content */
+      padding: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .venture-card.expanded .expand-icon {
+      transform: rotate(180deg);
+    }
+
+    .venture-full-details p {
+      margin-bottom: 0.8rem;
+      color: #dddddd;
+    }
+
+    /* Footer */
+    .footer {
+      background: #020202;
+      border-top: 2px solid #0f2a25;
+      padding: 2rem 0;
+      margin-top: 1rem;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .footer-quote {
+      font-size: 1.0rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      animation: flicker 3s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; text-shadow: 0 0 2px var(--accent); }
+      50% { opacity: 0.9; text-shadow: 0 0 8px var(--accent); }
+    }
+
+    .footer-symbol {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      color: var(--accent);
+      animation: spinSymbol 6s infinite linear;
+      display: inline-block;
+    }
+
+    @keyframes spinSymbol {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 780px) {
+      .venture-title { font-size: 1.4rem; }
+      h2 { font-size: 1.6rem; }
+      .venture-header { flex-direction: column; align-items: flex-start; }
+    }
+
+    ::-webkit-scrollbar { width: 8px; background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 6px; }
+  </style>
+</head>
+<body>
+
+<div class="hacker-led"></div>
+<div class="blink-dot"></div>
+
+<div class="container">
+  <div class="header-main">
+    <div class="brand">
+      <i class="fa-brands fa-studiovinari brand-icon"></i>
+      <span class="brand-name">ANISH ENTERPRISES</span>
+    </div>
+    <div class="sys-status">
+      <i class="fas fa-terminal"></i> root@anish:~$ VENTURES // ACTIVE
+      <i class="fas fa-shield-haltered" style="margin-left: 8px;"></i>
+    </div>
+  </div>
+</div>
+
+<!-- TOP NAVIGATION -->
+<div class="nav-bar">
+  <div class="container">
+    <ul class="nav-links">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="ventures.html" class="active">VENTURES</a></li>
+      <li><a href="services.html">SERVICES</a></li>
+      <li><a href="review.html">REVIEW</a></li>
+      <li><a href="policy.html">POLICY</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+  </div>
+</div>
+
+<main class="container">
+  <h2><i class="fas fa-rocket" style="margin-right: 12px;"></i> Our Ventures</h2>
+  <p style="margin-bottom: 2rem;">Explore the ecosystem of innovation built under ANISH ENTERPRISES — each venture represents a unique solution in its domain.</p>
+
+  <div class="ventures-grid">
+    
+    <!-- OldGold Venture -->
+    <div class="venture-card" data-venture="oldgold">
+      <div class="venture-header">
+        <i class="fas fa-gem venture-icon"></i>
+        <span class="venture-title">OldGold</span>
+      </div>
+      <div class="venture-short-desc">
+        OldGold is a modern, user-centric digital platform designed to streamline the process of buying and selling old, unused, or scrap gold in a secure and transparent way.
+      </div>
+      <div class="venture-link">
+        <i class="fas fa-external-link-alt"></i> <a href="https://oldgold.lovable.app" target="_blank" rel="noopener noreferrer">https://oldgold.lovable.app</a>
+      </div>
+      <i class="fas fa-chevron-down expand-icon"></i>
+      <div class="venture-full-details">
+        <p><strong>Full Overview:</strong> OldGold eliminates traditional complexities associated with gold transactions by providing users with a seamless experience—from valuation to final sale. It enables individuals to convert idle gold assets into real-time monetary value through a simplified and trustworthy system. By integrating fair pricing mechanisms, intuitive user interfaces, and efficient transaction workflows, OldGold ensures accurate valuations and a smooth selling process without unnecessary delays or hidden charges.</p>
+        <p>The platform is built with a focus on accessibility and reliability, allowing users to navigate easily, understand pricing, and complete transactions with confidence. Whether it is old jewelry, broken ornaments, or unused gold items, OldGold provides a convenient solution for unlocking their financial potential. Transparency and trust are critical in gold-related transactions, and OldGold reflects a modern approach to a traditionally offline market, bringing it into a secure digital ecosystem.</p>
+      </div>
+    </div>
+
+    <!-- ApnaAutoHub Venture -->
+    <div class="venture-card" data-venture="apnaautohub">
+      <div class="venture-header">
+        <i class="fas fa-car venture-icon"></i>
+        <span class="venture-title">ApnaAutoHub</span>
+      </div>
+      <div class="venture-short-desc">
+        Apna AutoHub is a comprehensive digital platform designed to simplify the buying, selling, and exploration of automobiles through a modern, user-friendly interface.
+      </div>
+      <div class="venture-link">
+        <i class="fas fa-external-link-alt"></i> <a href="https://apnaautohub.lovable.app" target="_blank" rel="noopener noreferrer">https://apnaautohub.lovable.app</a>
+      </div>
+      <i class="fas fa-chevron-down expand-icon"></i>
+      <div class="venture-full-details">
+        <p><strong>Full Overview:</strong> Apna AutoHub serves as a centralized hub where users can easily browse a wide range of vehicles, compare options, and connect with sellers, making the entire automotive experience more efficient and accessible. The platform bridges the gap between buyers and sellers by providing a streamlined system that reduces traditional complexities of vehicle transactions.</p>
+        <p>Users can explore detailed listings, view specifications, and make informed decisions without time-consuming offline processes. With a focus on convenience and transparency, Apna AutoHub ensures access to accurate information, intuitive navigation, and smooth interaction flow. Whether purchasing a new vehicle, selling an existing one, or exploring market options, the platform provides a reliable and organized environment. Its clean design and structured layout enhance user experience, making vehicle discovery and transactions straightforward, fast, and trustworthy.</p>
+      </div>
+    </div>
+
+    <!-- FocusRoom Venture -->
+    <div class="venture-card" data-venture="focusroom">
+      <div class="venture-header">
+        <i class="fas fa-brain venture-icon"></i>
+        <span class="venture-title">FocusRoom</span>
+      </div>
+      <div class="venture-short-desc">
+        FocusRoom is a dedicated digital productivity environment designed to help users achieve deep focus, minimize distractions, and maximize efficiency.
+      </div>
+      <div class="venture-link">
+        <i class="fas fa-external-link-alt"></i> <a href="https://Anish-Kushwaha.online/FocusRoom" target="_blank" rel="noopener noreferrer">https://Anish-Kushwaha.online/FocusRoom</a>
+      </div>
+      <i class="fas fa-chevron-down expand-icon"></i>
+      <div class="venture-full-details">
+        <p><strong>Full Overview:</strong> FocusRoom creates a structured and immersive workspace where users can concentrate on their tasks with clarity and discipline. Built around the concept of deep work, it encourages users to enter a distraction-free state where productivity and cognitive performance are significantly enhanced. With a clean and minimal interface, FocusRoom removes unnecessary clutter and keeps attention centered on what truly matters.</p>
+        <p>The platform may incorporate features such as timed work sessions, focus tracking, or a controlled digital environment that promotes consistency and accountability. The goal is to transform scattered work habits into a more organized and intentional workflow. FocusRoom reflects a modern approach to productivity by combining simplicity with purpose, providing a focused ecosystem where efficiency, discipline, and mental clarity become core drivers of performance.</p>
+      </div>
+    </div>
+
+    <!-- Noesis Venture -->
+    <div class="venture-card" data-venture="noesis">
+      <div class="venture-header">
+        <i class="fas fa-microchip venture-icon"></i>
+        <span class="venture-title">Noesis</span>
+      </div>
+      <div class="venture-short-desc">
+        Noesis is a conceptual digital platform centered around intelligence, cognition, and deep analytical thinking — a fusion of technology and philosophy.
+      </div>
+      <div class="venture-link">
+        <i class="fas fa-external-link-alt"></i> <a href="https://Anish-Kushwaha.online/Noesis" target="_blank" rel="noopener noreferrer">https://Anish-Kushwaha.online/Noesis</a>
+      </div>
+      <i class="fas fa-chevron-down expand-icon"></i>
+      <div class="venture-full-details">
+        <p><strong>Full Overview:</strong> Inspired by the idea of "pure understanding," Noesis represents a space where knowledge is not just consumed, but interpreted, structured, and evolved into higher forms of insight. The platform is designed to reflect a fusion of technology and philosophy, where systems, ideas, and patterns are explored with precision and depth. It emphasizes clarity of thought, logical reasoning, and the ability to break down complex concepts into meaningful, structured understanding.</p>
+        <p>Noesis is not just a tool or a project—it is an intellectual framework. It symbolizes the process of transforming raw information into refined knowledge, and ultimately into wisdom. Whether applied to technology, cybersecurity, or abstract thinking, it represents a mindset of continuous exploration and deep awareness. With a minimal yet thought-provoking design, Noesis creates an environment that encourages focus, reflection, and cognitive expansion.</p>
+      </div>
+    </div>
+
+    <!-- Vulnerability Scanner Venture -->
+    <div class="venture-card" data-venture="scanner">
+      <div class="venture-header">
+        <i class="fas fa-shield-virus venture-icon"></i>
+        <span class="venture-title">Vulnerability Scanner</span>
+      </div>
+      <div class="venture-short-desc">
+        Scanner is a cybersecurity-focused system designed to identify, analyze, and assess vulnerabilities across digital environments.
+      </div>
+      <div class="venture-link">
+        <i class="fas fa-external-link-alt"></i> <a href="https://Anish-Kushwaha.online/Scanner" target="_blank" rel="noopener noreferrer">https://Anish-Kushwaha.online/Scanner</a>
+      </div>
+      <i class="fas fa-chevron-down expand-icon"></i>
+      <div class="venture-full-details">
+        <p><strong>Full Overview:</strong> Built with a hacker mindset, Scanner reflects the principles of penetration testing and ethical hacking—thinking like an attacker to strengthen defenses. It focuses on scanning networks, services, or applications to detect potential security flaws, misconfigurations, and exposed attack surfaces. The platform emphasizes efficiency, precision, and automation. Instead of manual inspection, Scanner enables structured and systematic analysis, helping users quickly understand the security posture of a target system.</p>
+        <p>It may include capabilities such as port scanning, service detection, and vulnerability identification, forming the foundation of a proactive security strategy. Scanner is not just a tool—it is a representation of a defensive mindset driven by offensive techniques. It aligns with modern cybersecurity practices where prevention begins with deep analysis and continuous monitoring.</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- BOTTOM NAVIGATION -->
+<div class="bottom-nav-bar">
+  <div class="container">
+    <ul class="nav-links">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="ventures.html" class="active">VENTURES</a></li>
+      <li><a href="services.html">SERVICES</a></li>
+      <li><a href="review.html">REVIEW</a></li>
+      <li><a href="policy.html">POLICY</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-quote"><i class="fas fa-quote-left"></i> “I don't follow the universe — I reprogram it.”</div>
+    <div class="footer-copyright"><i class="far fa-copyright"></i> 2026 Anish Kushwaha • All rights reserved</div>
+    <div class="footer-symbol">⚚Ⓐ⚚</div>
+  </div>
+</footer>
+
+<script>
+  // Toggle venture card expansion
+  document.querySelectorAll('.venture-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+      // Prevent toggling if clicking on the hyperlink (to avoid double event)
+      if (e.target.tagName === 'A' || e.target.closest('a')) {
+        e.stopPropagation();
+        return;
+      }
+      this.classList.toggle('expanded');
+    });
+  });
+
+  // Active nav highlight (for ventures page)
+  const currentPath = window.location.pathname;
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.classList.remove('active');
+    const href = link.getAttribute('href');
+    if (href === 'ventures.html' || (href === 'ventures.html' && currentPath.includes('ventures'))) {
+      link.classList.add('active');
+    }
+    if (currentPath.endsWith('ventures.html') && href === 'ventures.html') {
+      link.classList.add('active');
+    }
+  });
+</script>
+</body>
+            </html>
