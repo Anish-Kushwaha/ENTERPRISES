@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <title>ANISH ENTERPRISES — Legal Policy & Privacy Framework</title>
+  
+  <!-- Favicon (Tab Icon) -->
+  <link rel="icon" type="image/png" href="Anish-Logo.png">
+  
+  <!-- Font Awesome 6 (Brands + Solid + Regular) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+  <!-- Google Fonts: Monospace + Modern Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000000;
+      background-image: 
+        repeating-linear-gradient(0deg, rgba(3, 255, 200, 0.02) 0px, rgba(3, 255, 200, 0.02) 1px, transparent 1px, transparent 8px),
+        repeating-linear-gradient(90deg, rgba(3, 255, 200, 0.02) 0px, rgba(3, 255, 200, 0.02) 1px, transparent 1px, transparent 8px);
+      color: #dddddd;
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      position: relative;
+    }
+
+    /* Animated scanning line overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: linear-gradient(0deg, transparent 0%, rgba(3,255,200,0.03) 50%, transparent 100%);
+      animation: scan 8s linear infinite;
+      z-index: 999;
+    }
+
+    @keyframes scan {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100%); }
+    }
+
+    :root {
+      --accent: #03ffc8;
+      --accent-glow: rgba(3, 255, 200, 0.3);
+      --accent-dark: #02cc9e;
+      --black-soft: #0b0b0b;
+      --black-deep: #000000;
+      --border-glow: #03ffc8;
+      --blink-red: #ff0033;
+      --blink-green: #00ff66;
+    }
+
+    /* Typography & accent */
+    a, .accent-text, .brand-name {
+      color: var(--accent);
+    }
+
+    h1, h2, h3, .glow-text {
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, rgba(3,255,200,0.1), transparent);
+      animation: subtlePulse 3s infinite;
+    }
+
+    @keyframes subtlePulse {
+      0% { border-left-color: var(--accent); text-shadow: 0 0 0px transparent; }
+      50% { border-left-color: #02ffc0; text-shadow: 0 0 4px var(--accent-glow); }
+      100% { border-left-color: var(--accent); text-shadow: 0 0 0px transparent; }
+    }
+
+    /* Container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HEADER area with glitch effect and blinking lights */
+    .header-main {
+      padding: 1.8rem 0 1rem 0;
+      border-bottom: 1px solid #1f2a2a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      position: relative;
+    }
+
+    /* Blinking LED strip (hacker lights) */
+    .hacker-led {
+      position: absolute;
+      top: -6px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: repeating-linear-gradient(90deg, 
+        #ff0033 0px, #ff0033 20px, 
+        #00ff66 20px, #00ff66 40px,
+        #03ffc8 40px, #03ffc8 60px,
+        #ffaa00 60px, #ffaa00 80px);
+      animation: blinkMove 0.8s step-end infinite;
+      box-shadow: 0 0 8px rgba(255,0,51,0.6);
+    }
+
+    @keyframes blinkMove {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; filter: brightness(1.2); }
+    }
+
+    /* Additional blinking dot in corner */
+    .blink-dot {
+      position: fixed;
+      top: 12px;
+      right: 20px;
+      width: 12px;
+      height: 12px;
+      background: var(--blink-green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--blink-green);
+      animation: blinkDot 1.2s infinite;
+      z-index: 1000;
+    }
+
+    @keyframes blinkDot {
+      0%, 100% { opacity: 1; background: #00ff66; box-shadow: 0 0 12px #00ff66; }
+      50% { opacity: 0.3; background: #ff0033; box-shadow: 0 0 4px #ff0033; }
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .brand-icon {
+      font-size: 2.8rem;
+      color: var(--accent);
+      filter: drop-shadow(0 0 6px var(--accent-glow));
+      transition: transform 0.2s ease, filter 0.3s;
+      animation: floatIcon 3s ease-in-out infinite;
+    }
+
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-3px); }
+    }
+
+    .brand-icon:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 12px var(--accent));
+    }
+
+    .brand-name {
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #FFFFFF 20%, var(--accent) 80%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 6px rgba(3,255,200,0.3);
+      position: relative;
+      animation: glitch 5s infinite;
+    }
+
+    @keyframes glitch {
+      0%, 100% { text-shadow: 0.02em 0 0 rgba(255,0,0,0.3), -0.02em 0 0 rgba(0,255,255,0.3); }
+      25% { text-shadow: -0.02em 0 0 rgba(255,0,0,0.3), 0.02em 0 0 rgba(0,255,255,0.3); }
+      50% { text-shadow: 0.02em 0.02em 0 rgba(255,0,0,0.2), -0.02em -0.02em 0 rgba(0,255,255,0.2); }
+      75% { text-shadow: -0.02em 0.01em 0 rgba(255,0,0,0.2), 0.02em -0.01em 0 rgba(0,255,255,0.2); }
+    }
+
+    /* Terminal status */
+    .sys-status {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      background: #0f1a1a;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      border-left: 2px solid var(--accent);
+      color: var(--accent);
+      letter-spacing: 0.5px;
+    }
+
+    /* Navigation bars */
+    .nav-bar, .bottom-nav-bar {
+      background: #050505cc;
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #1c2a2a;
+      border-top: 1px solid #1c2a2a;
+      margin: 0.5rem 0 1.5rem 0;
+      padding: 0.9rem 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    .bottom-nav-bar {
+      margin: 3rem 0 1rem 0;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+      transition: all 0.2s;
+      padding: 0.4rem 0;
+      border-bottom: 2px solid transparent;
+      color: #c0c0c0;
+      position: relative;
+    }
+
+    .nav-links li a::before {
+      content: ">";
+      opacity: 0;
+      margin-right: 4px;
+      transition: opacity 0.2s;
+      color: var(--accent);
+    }
+
+    .nav-links li a:hover::before, .nav-links li a.active::before {
+      opacity: 1;
+    }
+
+    .nav-links li a:hover, .nav-links li a.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+      text-shadow: 0 0 6px var(--accent-glow);
+    }
+
+    /* Policy sections - same card style as index intro-section */
+    .policy-block {
+      background: rgba(5, 5, 5, 0.75);
+      backdrop-filter: blur(2px);
+      border-radius: 28px;
+      border: 1px solid #1a2a2a;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2.2rem;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.7s forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .policy-block:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 20px rgba(3,255,200,0.2);
+      transform: translateY(-3px);
+    }
+
+    /* Lists inside policy with icons */
+    .policy-list {
+      list-style: none;
+      margin: 1rem 0;
+    }
+    .policy-list li {
+      margin-bottom: 0.7rem;
+      padding-left: 1.8rem;
+      position: relative;
+    }
+    .policy-list li i {
+      position: absolute;
+      left: 0;
+      top: 0.2rem;
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+    .policy-list li:hover {
+      color: var(--accent);
+      transform: translateX(4px);
+      transition: 0.2s;
+    }
+
+    /* Subheading style */
+    h3 {
+      font-size: 1.4rem;
+      margin: 1.2rem 0 0.8rem 0;
+      color: var(--accent);
+      font-weight: 600;
+      border-left: 2px solid var(--accent);
+      padding-left: 0.8rem;
+    }
+
+    .policy-sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
+    }
+
+    blockquote {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem;
+      padding: 1rem 1.8rem;
+      background: #030f0e;
+      border-radius: 20px;
+      border-left: 5px solid var(--accent);
+      margin: 1rem 0;
+      color: #ccfff2;
+      transition: all 0.3s;
+    }
+
+    blockquote:hover {
+      transform: scale(1.01);
+      background: #031715;
+    }
+
+    hr {
+      border-color: #1f2a2a;
+      margin: 1.2rem 0;
+    }
+
+    /* Footer */
+    .footer {
+      background: #020202;
+      border-top: 2px solid #0f2a25;
+      padding: 2rem 0 2rem;
+      margin-top: 1rem;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      position: relative;
+    }
+
+    .footer-quote {
+      font-size: 1.0rem;
+      color: var(--accent);
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      animation: flicker 3s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; text-shadow: 0 0 2px var(--accent); }
+      50% { opacity: 0.9; text-shadow: 0 0 8px var(--accent); }
+    }
+
+    .footer-symbol {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      color: var(--accent);
+      animation: spinSymbol 6s infinite linear;
+      display: inline-block;
+    }
+
+    @keyframes spinSymbol {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 780px) {
+      .container { padding: 0 16px; }
+      h2 { font-size: 1.6rem; }
+      .policy-block { padding: 1.2rem; }
+      .nav-links { gap: 1rem; }
+      h3 { font-size: 1.2rem; }
+    }
+
+    ::-webkit-scrollbar { width: 8px; background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 6px; }
+    ::selection { background: var(--accent); color: black; }
+  </style>
+</head>
+<body>
+
+<!-- BLINKING LIGHT (hacker led above header) -->
+<div class="hacker-led"></div>
+<div class="blink-dot"></div>
+
+<div class="container">
+  <div class="header-main">
+    <div class="brand">
+      <i class="fa-brands fa-studiovinari brand-icon"></i>
+      <span class="brand-name">ANISH ENTERPRISES</span>
+    </div>
+    <div class="sys-status">
+      <i class="fas fa-terminal"></i> root@anish:~$ LEGAL // POLICY
+      <i class="fas fa-shield-haltered" style="margin-left: 8px;"></i>
+    </div>
+  </div>
+</div>
+
+<!-- TOP NAVIGATION -->
+<div class="nav-bar">
+  <div class="container">
+    <ul class="nav-links">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="ventures.html">VENTURES</a></li>
+      <li><a href="services.html">SERVICES</a></li>
+      <li><a href="review.html">REVIEW</a></li>
+      <li><a href="policy.html" class="active">POLICY</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+  </div>
+</div>
+
+<main class="container">
+  
+  <!-- Policy Header: Title + Effective dates -->
+  <div class="policy-block" style="animation-delay: 0.05s;">
+    <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem;"><i class="fas fa-gavel" style="color: #03ffc8; margin-right: 12px;"></i> Legal Policy & Acceptable Use Agreement</h1>
+    <div class="policy-sub">
+      <i class="fas fa-calendar-alt"></i> <strong>Effective Date:</strong> April 1, 2027 &nbsp;|&nbsp;
+      <i class="fas fa-edit"></i> <strong>Last Updated:</strong> April 11, 2026
+    </div>
+    <p style="margin-top: 1rem;">This document governs your access to and use of all platforms, tools, systems, and services developed or operated under ANISH ENTERPRISES. By engaging with our ecosystem, you agree to be bound by the terms below.</p>
+  </div>
+
+  <!-- 1. INTRODUCTION -->
+  <div class="policy-block" style="animation-delay: 0.1s;">
+    <h2><i class="fas fa-info-circle" style="margin-right: 12px;"></i> 1. INTRODUCTION</h2>
+    <p>Welcome to <strong>ANISH ENTERPRISES</strong> (“we”, “our”, “us”). This Legal Policy governs your access to and use of all platforms, tools, systems, and services developed or operated under ANISH ENTERPRISES.</p>
+    <p style="margin-top: 0.8rem;">By accessing or using our services, you agree to comply with this Policy, applicable laws, and all cybersecurity and ethical usage standards defined herein.</p>
+  </div>
+
+  <!-- 2. LEGAL COMPLIANCE FRAMEWORK -->
+  <div class="policy-block" style="animation-delay: 0.15s;">
+    <h2><i class="fas fa-balance-scale" style="margin-right: 12px;"></i> 2. LEGAL COMPLIANCE FRAMEWORK</h2>
+    <p>ANISH ENTERPRISES operates in accordance with applicable laws, including but not limited to:</p>
+    <ul class="policy-list">
+      <li><i class="fas fa-check-circle"></i> Information Technology Act, 2000 (India)</li>
+      <li><i class="fas fa-check-circle"></i> Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011</li>
+      <li><i class="fas fa-check-circle"></i> Digital Personal Data Protection Act, 2023 (DPDP Act)</li>
+      <li><i class="fas fa-check-circle"></i> Applicable cybersecurity and data protection regulations</li>
+    </ul>
+    <p>Unauthorized access, data misuse, or cyber offenses are punishable under Sections 43, 65, 66, and related provisions of the IT Act.</p>
+  </div>
+
+  <!-- 3. DATA COLLECTION & PRIVACY POLICY -->
+  <div class="policy-block" style="animation-delay: 0.2s;">
+    <h2><i class="fas fa-database" style="margin-right: 12px;"></i> 3. DATA COLLECTION & PRIVACY POLICY</h2>
+    <h3>3.1 Data We Collect</h3>
+    <p>We may collect: user-provided data (name, contact details, feedback), technical data (IP address, browser type, system logs), and interaction data (usage patterns, tool interactions).</p>
+    <h3>3.2 Purpose of Data Collection</h3>
+    <p>Data is collected solely for service improvement, security monitoring, user support and communication, and research & development.</p>
+    <h3>3.3 Data Protection Measures</h3>
+    <p>We implement reasonable security practices as required under Section 43A of the IT Act, including encryption, access control, and monitoring systems.</p>
+    <h3>3.4 Data Sharing & Disclosure</h3>
+    <p>No personal data is sold or rented. Data is shared only when legally required or with user consent. Unauthorized disclosure is strictly prohibited under Section 72A.</p>
+    <h3>3.5 User Consent</h3>
+    <p>By using our services, you provide informed consent for data collection. Users may withdraw consent at any time by contacting us.</p>
+  </div>
+
+  <!-- 4. ACCEPTABLE USE POLICY -->
+  <div class="policy-block" style="animation-delay: 0.25s;">
+    <h2><i class="fas fa-ban" style="margin-right: 12px;"></i> 4. ACCEPTABLE USE POLICY</h2>
+    <p>Users agree <strong>NOT</strong> to:</p>
+    <ul class="policy-list">
+      <li><i class="fas fa-skull"></i> Attempt unauthorized access to any system or network</li>
+      <li><i class="fas fa-bug"></i> Exploit vulnerabilities without explicit permission</li>
+      <li><i class="fas fa-virus"></i> Distribute malware, malicious code, or exploit tools unlawfully</li>
+      <li><i class="fas fa-tachometer-alt"></i> Interfere with system integrity or availability</li>
+      <li><i class="fas fa-gavel"></i> Engage in any activity violating applicable cyber laws</li>
+    </ul>
+    <p>Violation may result in termination of access and legal action under the IT Act.</p>
+  </div>
+
+  <!-- 5. CYBERSECURITY & ETHICAL USAGE -->
+  <div class="policy-block" style="animation-delay: 0.3s;">
+    <h2><i class="fas fa-shield-virus" style="margin-right: 12px;"></i> 5. CYBERSECURITY & ETHICAL USAGE</h2>
+    <p>All tools, platforms, and systems provided by ANISH ENTERPRISES are intended strictly for educational purposes, security research, and ethical authorized testing. We do NOT support or promote illegal hacking, unauthorized exploitation, or malicious activities. Users bear full responsibility for how they use any provided technology.</p>
+  </div>
+
+  <!-- 6. DISCLAIMER OF LIABILITY -->
+  <div class="policy-block" style="animation-delay: 0.35s;">
+    <h2><i class="fas fa-exclamation-triangle" style="margin-right: 12px;"></i> 6. DISCLAIMER OF LIABILITY</h2>
+    <p>All services are provided “as is” and “as available” without warranties of any kind. ANISH ENTERPRISES shall not be liable for misuse of tools or systems, unauthorized activities conducted by users, data loss, system damage, indirect consequences, or security breaches caused by user negligence. Use of services is at your own risk.</p>
+  </div>
+
+  <!-- 7. INTERMEDIARY STATUS & LIMITATION -->
+  <div class="policy-block" style="animation-delay: 0.4s;">
+    <h2><i class="fas fa-link" style="margin-right: 12px;"></i> 7. INTERMEDIARY STATUS & LIMITATION OF LIABILITY</h2>
+    <p>Where applicable, ANISH ENTERPRISES operates as a technology provider/intermediary. We are not responsible for user-generated actions or misuse of systems, provided due diligence and legal compliance requirements are met under applicable laws.</p>
+  </div>
+
+  <!-- 8. DATA RETENTION & DELETION -->
+  <div class="policy-block" style="animation-delay: 0.45s;">
+    <h2><i class="fas fa-trash-alt" style="margin-right: 12px;"></i> 8. DATA RETENTION & DELETION</h2>
+    <p>Data is retained only as long as necessary for operational and legal purposes. Users may request deletion of their data. Data is securely deleted when no longer required.</p>
+  </div>
+
+  <!-- 9. SECURITY PRACTICES -->
+  <div class="policy-block" style="animation-delay: 0.5s;">
+    <h2><i class="fas fa-lock" style="margin-right: 12px;"></i> 9. SECURITY PRACTICES</h2>
+    <p>We follow industry-aligned security practices including secure system architecture, continuous monitoring, vulnerability assessment, patching, and access restriction. However, no system is 100% secure, and residual risks may exist.</p>
+  </div>
+
+  <!-- 10. VULNERABILITY DISCLOSURE POLICY -->
+  <div class="policy-block" style="animation-delay: 0.55s;">
+    <h2><i class="fas fa-eye" style="margin-right: 12px;"></i> 10. VULNERABILITY DISCLOSURE POLICY</h2>
+    <p>We encourage responsible disclosure of vulnerabilities. Researchers must report vulnerabilities privately, avoid public disclosure without authorization, and not exploit discovered flaws. Failure to follow responsible disclosure may result in legal action.</p>
+  </div>
+
+  <!-- 11. USER RIGHTS -->
+  <div class="policy-block" style="animation-delay: 0.6s;">
+    <h2><i class="fas fa-user-check" style="margin-right: 12px;"></i> 11. USER RIGHTS</h2>
+    <ul class="policy-list">
+      <li><i class="fas fa-eye"></i> Right to access their data</li>
+      <li><i class="fas fa-edit"></i> Right to correction of inaccurate data</li>
+      <li><i class="fas fa-user-slash"></i> Right to withdraw consent</li>
+      <li><i class="fas fa-database"></i> Right to request deletion of personal data</li>
+    </ul>
+    <p>Requests can be made through official contact channels.</p>
+  </div>
+
+  <!-- 12. POLICY UPDATES -->
+  <div class="policy-block" style="animation-delay: 0.65s;">
+    <h2><i class="fas fa-sync-alt" style="margin-right: 12px;"></i> 12. POLICY UPDATES</h2>
+    <p>ANISH ENTERPRISES reserves the right to modify this Policy at any time. Updates will be published on this page. Continued use of services constitutes acceptance of updated terms.</p>
+  </div>
+
+  <!-- 13. GOVERNING LAW & JURISDICTION -->
+  <div class="policy-block" style="animation-delay: 0.7s;">
+    <h2><i class="fas fa-globe-asia" style="margin-right: 12px;"></i> 13. GOVERNING LAW & JURISDICTION</h2>
+    <p>This Policy is governed by the laws of India. Any disputes arising shall fall under the jurisdiction of competent courts in India.</p>
+  </div>
+
+  <!-- 14. CONTACT INFORMATION -->
+  <div class="policy-block" style="animation-delay: 0.75s;">
+    <h2><i class="fas fa-envelope" style="margin-right: 12px;"></i> 14. CONTACT INFORMATION</h2>
+    <p>For policy-related queries, data requests, or vulnerability reports, please contact:</p>
+    <ul class="policy-list">
+      <li><i class="fas fa-link"></i> Official Contact Page: <a href="contact.html">https://anish-enterprises.online/contact</a></li>
+      <li><i class="fas fa-at"></i> Email: <strong>legal@anish-enterprises.com</strong></li>
+    </ul>
+  </div>
+
+  <!-- 15. FOUNDER’S STATEMENT -->
+  <div class="policy-block" style="animation-delay: 0.8s;">
+    <h2><i class="fas fa-microphone-alt" style="margin-right: 12px;"></i> 15. FOUNDER’S STATEMENT</h2>
+    <blockquote>“At ANISH ENTERPRISES, security is not an afterthought—it is the foundation. We build systems not just to function, but to withstand failure, attack, and uncertainty.”</blockquote>
+    <p style="margin-top: 0.5rem;">— <strong>Anish Kushwaha</strong><br>Founder & Lead Engineer</p>
+  </div>
+
+</main>
+
+<!-- BOTTOM NAVIGATION -->
+<div class="bottom-nav-bar">
+  <div class="container">
+    <ul class="nav-links">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="ventures.html">VENTURES</a></li>
+      <li><a href="services.html">SERVICES</a></li>
+      <li><a href="review.html">REVIEW</a></li>
+      <li><a href="policy.html" class="active">POLICY</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-quote"><i class="fas fa-quote-left"></i> “I don't follow the universe — I reprogram it.”</div>
+    <div class="footer-copyright"><i class="far fa-copyright"></i> 2026 Anish Kushwaha • All rights reserved</div>
+    <div class="footer-symbol">⚚Ⓐ⚚</div>
+  </div>
+</footer>
+
+<script>
+  // Ensure active navigation state for POLICY page
+  (function() {
+    const currentPath = window.location.pathname;
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.classList.remove('active');
+      const href = link.getAttribute('href');
+      if (href === 'policy.html' || (href === 'policy.html' && currentPath.includes('policy'))) {
+        link.classList.add('active');
+      }
+      if (currentPath.endsWith('policy.html') && href === 'policy.html') link.classList.add('active');
+    });
+  })();
+</script>
+</body>
+  </html>
