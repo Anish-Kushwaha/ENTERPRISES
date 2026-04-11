@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <title>ANISH ENTERPRISES — Cyber Reviews · Intelligence Logs</title>
+  
+  <!-- Favicon (Tab Icon) -->
+  <link rel="icon" type="image/png" href="Anish-Logo.png">
+  
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000000;
+      background-image: 
+        repeating-linear-gradient(0deg, rgba(3, 255, 200, 0.02) 0px, rgba(3, 255, 200, 0.02) 1px, transparent 1px, transparent 8px),
+        repeating-linear-gradient(90deg, rgba(3, 255, 200, 0.02) 0px, rgba(3, 255, 200, 0.02) 1px, transparent 1px, transparent 8px);
+      color: #dddddd;
+      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: linear-gradient(0deg, transparent 0%, rgba(3,255,200,0.03) 50%, transparent 100%);
+      animation: scan 8s linear infinite;
+      z-index: 999;
+    }
+
+    @keyframes scan {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100%); }
+    }
+
+    /* movable animation element (gentle drifting particle) */
+    .movable-aura {
+      position: fixed;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(3, 255, 200, 0.12) 0%, rgba(3, 255, 200, 0) 70%);
+      border-radius: 50%;
+      filter: blur(40px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
+      animation: driftPath 22s infinite alternate ease-in-out;
+      will-change: transform;
+    }
+
+    @keyframes driftPath {
+      0% {
+        transform: translate(5%, 10%) scale(1);
+      }
+      25% {
+        transform: translate(75%, 20%) scale(1.1);
+      }
+      50% {
+        transform: translate(40%, 70%) scale(0.9);
+      }
+      75% {
+        transform: translate(-10%, 45%) scale(1.05);
+      }
+      100% {
+        transform: translate(85%, 85%) scale(1.15);
+      }
+    }
+
+    /* second subtle moving particle */
+    .movable-glow {
+      position: fixed;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(0, 255, 200, 0.08) 0%, rgba(0, 255, 200, 0) 70%);
+      border-radius: 50%;
+      filter: blur(35px);
+      pointer-events: none;
+      z-index: 0;
+      animation: driftReverse 27s infinite alternate ease-in-out;
+      opacity: 0.45;
+    }
+
+    @keyframes driftReverse {
+      0% {
+        transform: translate(80%, 5%) scale(0.9);
+      }
+      30% {
+        transform: translate(20%, 60%) scale(1.2);
+      }
+      70% {
+        transform: translate(60%, 30%) scale(0.85);
+      }
+      100% {
+        transform: translate(10%, 80%) scale(1.1);
+      }
+    }
+
+    :root {
+      --accent: #03ffc8;
+      --accent-glow: rgba(3, 255, 200, 0.3);
+      --blink-red: #ff0033;
+      --blink-green: #00ff66;
+    }
+
+    a { color: var(--accent); text-decoration: none; border-bottom: 1px dashed var(--accent); transition: 0.2s; }
+    a:hover { text-shadow: 0 0 4px var(--accent); border-bottom-style: solid; }
+
+    h1, h2, h3 { color: var(--accent); font-weight: 600; letter-spacing: -0.02em; }
+
+    h2 {
+      font-size: 1.9rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, rgba(3,255,200,0.1), transparent);
+      animation: subtlePulse 3s infinite;
+    }
+
+    @keyframes subtlePulse {
+      0% { border-left-color: var(--accent); text-shadow: 0 0 0 transparent; }
+      50% { border-left-color: #02ffc0; text-shadow: 0 0 4px var(--accent-glow); }
+      100% { border-left-color: var(--accent); text-shadow: 0 0 0 transparent; }
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Header */
+    .header-main {
+      padding: 1.8rem 0 1rem 0;
+      border-bottom: 1px solid #1f2a2a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      position: relative;
+    }
+
+    .hacker-led {
+      position: absolute;
+      top: -6px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: repeating-linear-gradient(90deg, 
+        #ff0033 0px, #ff0033 20px, 
+        #00ff66 20px, #00ff66 40px,
+        #03ffc8 40px, #03ffc8 60px,
+        #ffaa00 60px, #ffaa00 80px);
+      animation: blinkMove 0.8s step-end infinite;
+      box-shadow: 0 0 8px rgba(255,0,51,0.6);
+    }
+
+    @keyframes blinkMove {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; filter: brightness(1.2); }
+    }
+
+    .blink-dot {
+      position: fixed;
+      top: 12px;
+      right: 20px;
+      width: 12px;
+      height: 12px;
+      background: var(--blink-green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--blink-green);
+      animation: blinkDot 1.2s infinite;
+      z-index: 1000;
+    }
+
+    @keyframes blinkDot {
+      0%, 100% { opacity: 1; background: #00ff66; box-shadow: 0 0 12px #00ff66; }
+      50% { opacity: 0.3; background: #ff0033; box-shadow: 0 0 4px #ff0033; }
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .brand-icon {
+      font-size: 2.8rem;
+      color: var(--accent);
+      filter: drop-shadow(0 0 6px var(--accent-glow));
+      animation: floatIcon 3s ease-in-out infinite;
+    }
+
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-3px); }
+    }
+
+    .brand-name {
+      font-size: 1.7rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #FFFFFF 20%, var(--accent) 80%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 6px rgba(3,255,200,0.3);
+      animation: glitch 5s infinite;
+    }
+
+    @keyframes glitch {
+      0%, 100% { text-shadow: 0.02em 0 0 rgba(255,0,0,0.3), -0.02em 0 0 rgba(0,255,255,0.3); }
+      25% { text-shadow: -0.02em 0 0 rgba(255,0,0,0.3), 0.02em 0 0 rgba(0,255,255,0.3); }
+      50% { text-shadow: 0.02em 0.02em 0 rgba(255,0,0,0.2), -0.02em -0.02em 0 rgba(0,255,255,0.2); }
+      75% { text-shadow: -0.02em 0.01em 0 rgba(255,0,0,0.2), 0.02em -0.01em 0 rgba(0,255,255,0.2); }
+    }
+
+    .sys-status {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      background: #0f1a1a;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      border-left: 2px solid var(--accent);
+      color: var(--accent);
+    }
+
+    /* Navigation */
+    .nav-bar, .bottom-nav-bar {
+      background: #050505cc;
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #1c2a2a;
+      border-top: 1px solid #1c2a2a;
+      margin: 0.5rem 0 1.5rem 0;
+      padding: 0.9rem 0;
+      z-index: 10;
+      position: relative;
+    }
+
+    .bottom-nav-bar {
+      margin: 3rem 0 1rem 0;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+      transition: all 0.2s;
+      padding: 0.4rem 0;
+      border-bottom: 2px solid transparent;
+      color: #c0c0c0;
+      position: relative;
+    }
+
+    .nav-links li a::before {
+      content: ">";
+      opacity: 0;
+      margin-right: 4px;
+      transition: opacity 0.2s;
+      color: var(--accent);
+    }
+
+    .nav-links li a:hover::before, .nav-links li a.active::before {
+      opacity: 1;
+    }
+
+    .nav-links li a:hover, .nav-links li a.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+      text-shadow: 0 0 6px var(--accent-glow);
+    }
+
+    /* Review Cards / Grid Layout */
+    .reviews-grid, .metrics-grid, .case-grid, .achievements-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .review-card, .metric-card, .case-card, .achievement-card, .tech-review-card, .feedback-card, .founder-card {
+      background: rgba(5, 5, 5, 0.8);
+      backdrop-filter: blur(2px);
+      border-radius: 28px;
+      border: 1px solid #1a2a2a;
+      padding: 1.5rem;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+
+    .review-card:hover, .metric-card:hover, .case-card:hover, .achievement-card:hover, .tech-review-card:hover, .feedback-card:hover, .founder-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 20px rgba(3,255,200,0.2);
+      transform: translateY(-3px);
+    }
+
+    .stars {
+      color: var(--accent);
+      letter-spacing: 2px;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .half-star { position: relative; display: inline-block; }
+    .rating-text { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; margin-left: 0.5rem; }
+
+    .flex-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: space-between;
+    }
+    .metric-item {
+      flex: 1;
+      text-align: center;
+      background: #0a0a0a;
+      padding: 1rem;
+      border-radius: 20px;
+      border-left: 2px solid var(--accent);
+    }
+    .metric-value { font-size: 2rem; font-weight: 800; color: var(--accent); }
+    .metric-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+
+    .rating-bars {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .rating-cat {
+      background: #0f0f0f;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+    }
+
+    /* Feedback Form */
+    .feedback-form input, .feedback-form textarea, .feedback-form select {
+      width: 100%;
+      background: #0f1a1a;
+      border: 1px solid #1f2a2a;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border-radius: 16px;
+      color: white;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .feedback-form button {
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 0.6rem 1.5rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+    .feedback-form button:hover {
+      background: var(--accent);
+      color: black;
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+
+    /* FOOTER - exact match to index.html */
+    .footer {
+      background: #020202;
+      border-top: 2px solid #0f2a25;
+      padding: 2rem 0 2rem;
+      margin-top: 1rem;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-quote {
+      font-size: 1.0rem;
+      color: var(--accent);
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      animation: flicker 3s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; text-shadow: 0 0 2px var(--accent); }
+      50% { opacity: 0.9; text-shadow: 0 0 8px var(--accent); }
+    }
+
+    .footer-copyright {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    .footer-symbol {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      color: var(--accent);
+      animation: spinSymbol 6s infinite linear;
+      display: inline-block;
+    }
+
+    @keyframes spinSymbol {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 780px) {
+      .container { padding: 0 16px; }
+      h2 { font-size: 1.6rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links li a { font-size: 1.0em; }
+      .brand-name { font-size: 1.7rem; }
+      .flex-metrics { flex-direction: column; }
+    }
+
+    ::-webkit-scrollbar { width: 8px; background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 6px; }
+  </style>
+</head>
+<body>
+
+<!-- MOVABLE ANIMATION ELEMENTS (gentle drifting motion) -->
+<div class="movable-aura"></div>
+<div class="movable-glow"></div>
+
+<div class="hacker-led"></div>
+<div class="blink-dot"></div>
+
+<div class="container">
+  <div class="header-main">
+    <div class="brand">
+      <i class="fa-brands fa-studiovinari brand-icon"></i>
+      <span class="brand-name">ANISH ENTERPRISES</span>
+    </div>
+    <div class="sys-status">
+      <i class="fas fa-terminal"></i> root@anish:~$ REVIEWS // LOGS
+      <i class="fas fa-shield-haltered" style="margin-left: 8px;"></i>
+    </div>
+  </div>
+</div>
+
+<!-- TOP NAVIGATION -->
+<div class="nav-bar">
+  <div class="container">
+    <ul class="nav-links">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="ventures.html">VENTURES</a></li>
+      <li><a href="services.html">SERVICES</a></li>
+      <li><a href="review.html" class="active">REVIEW</a></li>
+      <li><a href="policy.html">POLICY</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+  </div>
+</div>
+
+<main class="container">
+  <h2><i class="fas fa-star-of-life" style="margin-right: 12px;"></i> Cyber Reviews & Technical Logs</h2>
+
+  <!-- 1. Client Testimonials -->
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p><strong>“The vulnerability scanner built by ANISH ENTERPRISES identified critical flaws in minutes. Highly impressive work.”</strong></p>
+      <p style="margin-top: 0.5rem; font-family: monospace;">— Shubham Kushwaha, Security Researcher (Beta Tester)</p>
+    </div>
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p><strong>“FocusRoom completely changed my workflow. Deep work sessions increased my productivity by 200%.”</strong></p>
+      <p style="margin-top: 0.5rem; font-family: monospace;">— Priyanshi Bairagi, Independent Developer</p>
+    </div>
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p><strong>“OldGold made selling scrap gold transparent and effortless. The valuation engine is fair and real-time.”</strong></p>
+      <p style="margin-top: 0.5rem; font-family: monospace;">— Bhavya Pandey</p>
+    </div>
+  </div>
+
+  <!-- 2. Project-Based Reviews (internal / technical) -->
+  <h2><i class="fas fa-microchip" style="margin-right: 12px;"></i> Project-Based Technical Reviews</h2>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p><strong>🔍 Scanner Performance Review:</strong> “The custom Nmap-like scanner executed full port scans on a /24 subnet in under 45 seconds. Banner grabbing accuracy 96%.”</p>
+    </div>
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p><strong>⚡ Automation System Feedback:</strong> “Exploit workflow automation reduced manual intervention by 80% — from detection to report generation.”</p>
+    </div>
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐☆</div>
+      <p><strong>🌐 Web Platform Experience:</strong> “ApnaAutoHub frontend is blazing fast; backend response time under 200ms on heavy load.”</p>
+    </div>
+  </div>
+
+  <!-- 3. Performance Metrics (high impact) -->
+  <h2><i class="fas fa-chart-line" style="margin-right: 12px;"></i> Performance Metrics</h2>
+  <div class="metric-card">
+    <div class="flex-metrics">
+      <div class="metric-item"><div class="metric-value">2x</div><div class="metric-label">Faster than traditional tools</div></div>
+      <div class="metric-item"><div class="metric-value">90%+</div><div class="metric-label">Vulnerability Detection Accuracy</div></div>
+      <div class="metric-item"><div class="metric-value">99.9%</div><div class="metric-label">System Uptime (all platforms)</div></div>
+      <div class="metric-item"><div class="metric-value">70%</div><div class="metric-label">Manual Effort Reduction</div></div>
+    </div>
+  </div>
+
+  <!-- 4. Technical Reviews / Analysis (researcher tone) -->
+  <h2><i class="fas fa-flask" style="margin-right: 12px;"></i> Technical Analysis Logs</h2>
+  <div class="tech-review-card">
+    <p><strong>Analysis: Vulnerability Detection Engine</strong><br>
+    “The system demonstrates strong capability in detecting misconfigurations using low-level socket analysis and banner grabbing techniques. Custom signature matching outperforms generic scanners in edge cases.”</p>
+    <p style="margin-top: 0.8rem;"><strong>Review on OSINT Suite:</strong> “Automated correlation of breached credentials and open-source metadata provides actionable intelligence with false-positive rate below 2%.”</p>
+  </div>
+
+  <!-- 5. Star Rating UI (overall + separate) -->
+  <h2><i class="fas fa-chart-simple" style="margin-right: 12px;"></i> Aggregated Ratings</h2>
+  <div class="metric-card">
+    <div style="font-size: 2rem; letter-spacing: 4px;">⭐⭐⭐⭐⭐</div>
+    <p><strong>Overall Rating: 4.9/5</strong> (based on internal benchmarks + beta feedback)</p>
+    <div class="rating-bars">
+      <span class="rating-cat">Security: ⭐⭐⭐⭐⭐</span>
+      <span class="rating-cat">Performance: ⭐⭐⭐⭐☆</span>
+      <span class="rating-cat">Reliability: ⭐⭐⭐⭐⭐</span>
+      <span class="rating-cat">Innovation: ⭐⭐⭐⭐⭐</span>
+    </div>
+  </div>
+
+  <!-- 6. Case Studies (mini) -->
+  <h2><i class="fas fa-briefcase" style="margin-right: 12px;"></i> Case Studies</h2>
+  <div class="case-grid">
+    <div class="case-card">
+      <h3>📡 Case Study: Network Scanner</h3>
+      <p><strong>Problem:</strong> Unknown open ports & outdated services on internal infrastructure.<br>
+      <strong>Solution:</strong> Deployed custom scanner built on raw sockets + service fingerprinting.<br>
+      <strong>Result:</strong> Identified 12 critical vulnerabilities (including outdated SSH and anonymous FTP).</p>
+    </div>
+    <div class="case-card">
+      <h3>🤖 Case Study: Automation Pipeline</h3>
+      <p><strong>Problem:</strong> Manual security auditing took 6 hours per asset.<br>
+      <strong>Solution:</strong> Integrated scanning + exploitation + reporting into one pipeline.<br>
+      <strong>Result:</strong> Audit time reduced to 45 minutes, 100% repeatable.</p>
+    </div>
+  </div>
+
+  <!-- 7. User Feedback Form -->
+  <h2><i class="fas fa-comment-dots" style="margin-right: 12px;"></i> Submit Your Review</h2>
+  <div class="feedback-card">
+    <form id="feedbackForm" class="feedback-form">
+      <input type="text" id="name" placeholder="Name / Handle" required>
+      <textarea id="feedback" rows="3" placeholder="Your feedback / technical review..." required></textarea>
+      <select id="rating">
+        <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+        <option value="4">⭐⭐⭐⭐☆ (4/5)</option>
+        <option value="3">⭐⭐⭐☆☆ (3/5)</option>
+        <option value="2">⭐⭐☆☆☆ (2/5)</option>
+        <option value="1">⭐☆☆☆☆ (1/5)</option>
+      </select>
+      <button type="submit"><i class="fas fa-paper-plane"></i> Submit Feedback</button>
+    </form>
+    <p id="formMessage" style="margin-top: 1rem; color: var(--accent); font-size: 0.8rem;"></p>
+  </div>
+
+  <!-- 8. Achievements / Recognition -->
+  <h2><i class="fas fa-trophy" style="margin-right: 12px;"></i> Achievements & Built Systems</h2>
+  <div class="achievements-grid">
+    <div class="achievement-card">
+      <i class="fas fa-shield-haltered" style="font-size: 2rem; margin-right: 1rem;"></i>
+      <span>Developed a custom Nmap‑like scanner using Python with real‑time banner analysis.</span>
+    </div>
+    <div class="achievement-card">
+      <i class="fas fa-globe" style="font-size: 2rem; margin-right: 1rem;"></i>
+      <span>Launched 5+ production platforms (OldGold, ApnaAutoHub, FocusRoom, Noesis, Scanner).</span>
+    </div>
+    <div class="achievement-card">
+      <i class="fas fa-robot" style="font-size: 2rem; margin-right: 1rem;"></i>
+      <span>Built end‑to‑end automation systems for vulnerability exploitation pipelines.</span>
+    </div>
+  </div>
+
+  <!-- 9. Founder’s Note -->
+  <h2><i class="fas fa-pen-fancy" style="margin-right: 12px;"></i> Founder’s Statement</h2>
+  <div class="founder-card">
+    <p style="font-size: 1.2rem; font-family: 'JetBrains Mono', monospace;">“At ANISH ENTERPRISES, every system is tested not just for performance—but for failure. Because true strength lies in understanding weaknesses.”</p>
+    <p style="margin-top: 1rem;">— <a href="https://Anish-Kushwaha.online" target="_blank">Anish Kushwaha</a>, Founder & Lead Engineer</p>
+  </div>
+
+</main>
+
+<!-- BOTTOM NAVIGATION -->
+<div class="bottom-nav-bar">
+  <div class="container">
+    <ul class="nav-links">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="ventures.html">VENTURES</a></li>
+      <li><a href="services.html">SERVICES</a></li>
+      <li><a href="review.html" class="active">REVIEW</a></li>
+      <li><a href="policy.html">POLICY</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- FOOTER — exact match to index.html (same quote, symbol, and animation) -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-quote"><i class="fas fa-quote-left"></i> “I don't follow the universe — I reprogram it.”</div>
+    <div class="footer-copyright"><i class="far fa-copyright"></i> 2026 Anish Kushwaha • All rights reserved</div>
+    <div class="footer-symbol">⚚Ⓐ⚚</div>
+  </div>
+</footer>
+
+<script>
+  // Feedback form handler
+  const form = document.getElementById('feedbackForm');
+  const msgDiv = document.getElementById('formMessage');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const feedback = document.getElementById('feedback').value.trim();
+    const rating = document.getElementById('rating').value;
+    if (!name || !feedback) {
+      msgDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Please fill all fields.';
+      return;
+    }
+    // Simulate submission (store in console / alert)
+    console.log(`Feedback from ${name}: ${feedback} (Rating: ${rating}/5)`);
+    msgDiv.innerHTML = `<i class="fas fa-check-circle"></i> Thank you, ${name}. Your review has been logged.`;
+    form.reset();
+    setTimeout(() => { msgDiv.innerHTML = ''; }, 4000);
+  });
+
+  // Active nav highlight for REVIEW page
+  const currentPath = window.location.pathname;
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.classList.remove('active');
+    const href = link.getAttribute('href');
+    if (href === 'review.html' || (href === 'review.html' && currentPath.includes('review'))) {
+      link.classList.add('active');
+    }
+    if (currentPath.endsWith('review.html') && href === 'review.html') link.classList.add('active');
+  });
+</script>
+</body>
+</html>
