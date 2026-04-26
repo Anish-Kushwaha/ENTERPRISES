@@ -527,11 +527,14 @@
     }
 
     :root {
-      --accent: #03ffc8;
-      --accent-glow: rgba(3, 255, 200, 0.3);
-      --accent-dark: #02cc9e;
+      --accent: #5cc8ff;
+      --accent-glow: rgba(92, 200, 255, 0.34);
+      --accent-dark: #2f7cff;
       --blink-red: #ff0033;
-      --blink-green: #00ff66;
+      --accent-secondary: #ff4a6e;
+      --accent-tertiary: #8c5eff;
+      --accent-blue-deep: #1c3d79;
+      --blink-green: #3a86ff;
     }
 
     a {
@@ -546,6 +549,8 @@
 
     h2 {
       font-size: 1.9rem;
+      color: #d8e8ff;
+      text-shadow: 0 0 10px rgba(124, 167, 255, 0.18);
       border-left: 4px solid var(--accent);
       padding-left: 1rem;
       margin-bottom: 1.5rem;
@@ -867,6 +872,53 @@
 
     ::-webkit-scrollbar { width: 8px; background: #0a0a0a; }
     ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 6px; }
+ codex/create-contact.html-page-with-team-details-y90k6u
+
+  
+    /* ===== Multicolor theme upgrade (blue/red/purple accents) ===== */
+    .hacker-led {
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent-secondary) 45%, var(--accent-tertiary) 100%) !important;
+      box-shadow: 0 0 14px rgba(255, 74, 110, 0.35), 0 0 14px rgba(92, 200, 255, 0.35) !important;
+    }
+
+    .brand-name {
+      background: linear-gradient(120deg, #ffffff 10%, var(--accent) 45%, var(--accent-secondary) 75%, var(--accent-tertiary) 100%) !important;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent !important;
+    }
+
+    h2 {
+      border-left-color: var(--accent-secondary) !important;
+      box-shadow: 0 0 18px rgba(255, 74, 110, 0.15);
+    }
+
+    .sys-status {
+      border-left-color: var(--accent-secondary) !important;
+      color: #ffd0d8 !important;
+      background: linear-gradient(90deg, rgba(14, 23, 36, 0.95), rgba(36, 12, 18, 0.95)) !important;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: var(--accent-tertiary) !important;
+      border-bottom-color: var(--accent-secondary) !important;
+      text-shadow: 0 0 7px rgba(140, 94, 255, 0.45) !important;
+    }
+
+    .nav-links li a::before {
+      color: var(--accent-secondary) !important;
+    }
+
+    .service-title,
+    .venture-title,
+    .metric-value,
+    .policy-card h3,
+    .review-title,
+    .footer-symbol {
+      color: var(--accent-secondary);
+    }
+ main
 
 </style>
 </head>
