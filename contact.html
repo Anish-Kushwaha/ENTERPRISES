@@ -753,81 +753,6 @@
     }
     .topmate-badge a:hover { text-shadow: 0 0 4px var(--accent); }
 
-
-
-    /* Contact profile layout */
-    .profile-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.3rem;
-      margin-top: 1.2rem;
-    }
-
-    .profile-card {
-      background: rgba(5, 5, 5, 0.82);
-      border: 1px solid #1a2a2a;
-      border-radius: 24px;
-      padding: 1.3rem;
-      box-shadow: 0 0 0 rgba(0,0,0,0);
-      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
-    }
-
-    .profile-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent);
-      box-shadow: 0 0 16px rgba(3,255,200,.18);
-    }
-
-    .profile-image {
-      width: 170px;
-      height: 170px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid var(--accent);
-      display: block;
-      margin: 0 auto 0.9rem;
-      box-shadow: 0 0 16px rgba(3,255,200,.22);
-    }
-
-    .profile-name {
-      text-align: center;
-      font-size: 1.7rem;
-      margin-bottom: .4rem;
-    }
-
-    .profile-role {
-      text-align: center;
-      font-family: 'JetBrains Mono', monospace;
-      color: var(--accent);
-      margin-bottom: .9rem;
-      letter-spacing: .03em;
-    }
-
-    .link-list {
-      list-style: none;
-      margin-top: .7rem;
-      padding-left: 0;
-    }
-
-    .link-list li {
-      margin: .45rem 0;
-      padding-left: 1.2rem;
-      position: relative;
-    }
-
-    .link-list li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-    }
-
-    .section-note {
-      color: #c8d6d3;
-      margin-top: .5rem;
-      line-height: 1.6;
-    }
-
     /* Footer */
     .footer {
       background: #020202;
@@ -869,6 +794,63 @@
 
 </style>
 
+ codex/create-contact.html-page-with-team-details-y90k6u
+
+</style>
+
+
+ codex/create-contact.html-page-with-team-details-wkma6r
+  
+    /* ===== Multicolor theme upgrade (blue/red/purple accents) ===== */
+    .hacker-led {
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent-secondary) 45%, var(--accent-tertiary) 100%) !important;
+      box-shadow: 0 0 14px rgba(255, 74, 110, 0.35), 0 0 14px rgba(92, 200, 255, 0.35) !important;
+    }
+
+    .brand-name {
+      background: linear-gradient(120deg, #ffffff 10%, var(--accent) 45%, var(--accent-secondary) 75%, var(--accent-tertiary) 100%) !important;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent !important;
+    }
+
+    h2 {
+      border-left-color: var(--accent-secondary) !important;
+      box-shadow: 0 0 18px rgba(255, 74, 110, 0.15);
+    }
+
+    .sys-status {
+      border-left-color: var(--accent-secondary) !important;
+      color: #ffd0d8 !important;
+      background: linear-gradient(90deg, rgba(14, 23, 36, 0.95), rgba(36, 12, 18, 0.95)) !important;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: var(--accent-tertiary) !important;
+      border-bottom-color: var(--accent-secondary) !important;
+      text-shadow: 0 0 7px rgba(140, 94, 255, 0.45) !important;
+    }
+
+    .nav-links li a::before {
+      color: var(--accent-secondary) !important;
+    }
+
+    .service-title,
+    .venture-title,
+    .metric-value,
+    .policy-card h3,
+    .review-title,
+    .footer-symbol {
+      color: var(--accent-secondary);
+    }
+
+</style>
+
+  </style>
+ main
+
+ main
 <!-- ================= CONTACT PAGE EXTRA META EXTENSION ================= -->
 <meta name="contact-extension-001" content="ANISH ENTERPRISES contact metadata profile 001">
 <meta name="contact-extension-002" content="ANISH ENTERPRISES contact metadata profile 002">
@@ -974,36 +956,65 @@
 </div>
 
 <main class="container">
-  <h2><i class="fas fa-address-card" style="margin-right: 12px;"></i> Contact • Creator • Executive Team</h2>
+  <h2><i class="fas fa-address-card" style="margin-right: 12px;"></i> Creator & Executive Team</h2>
 
-  <div class="profile-card">
-    <img class="profile-image" src="Anish.png" alt="Anish Kushwaha">
-    <h3 class="profile-name"><a href="https://Anish-Kushwaha.online" target="_blank" rel="noopener noreferrer">ANISH KUSHWAHA</a></h3>
-    <p class="profile-role">Founder & CEO — ANISH ENTERPRISES</p>
-    <p class="section-note"><a href="https://Anish-Kushwaha.online" target="_blank" rel="noopener noreferrer">ANISH KUSHWAHA</a> is the creator and founder of ANISH ENTERPRISES, focused on cybersecurity, automation, and system engineering.</p>
-    <ul class="link-list">
-      <li><a href="https://Anish-Kushwaha.online" target="_blank" rel="noopener noreferrer">Portfolio: Anish-Kushwaha.online</a></li>
-      <li><a href="https://github.com/Anish-Kushwaha" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/anishkushwahaji" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-      <li><a href="https://twitter.com/Anish_Kushwaha_" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
-      <li><a href="https://www.facebook.com/AnishKushwahaji2" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-      <li><a href="https://wa.me/916287356552" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-    </ul>
+  <div class="topmate-badge">
+    <i class="fas fa-link"></i> <strong>Official Portfolio:</strong>
+    <a href="https://Anish-Kushwaha.online" target="_blank" rel="noopener noreferrer">https://Anish-Kushwaha.online</a>
   </div>
 
-  <div class="profile-grid">
-    <div class="profile-card">
-      <img class="profile-image" src="Bhavya, MD.jpg" alt="Bhavya Pandey">
-      <h3 class="profile-name">Bhavya Pandey</h3>
-      <p class="profile-role">Managing Director (MD)</p>
-      <p class="section-note">Leads administrative and management operations and supports strategic execution across ventures.</p>
+  <div class="services-grid">
+    <div class="service-card expanded" data-service="creator">
+      <div class="service-header">
+        <i class="fas fa-crown service-icon"></i>
+        <span class="service-title">Creator • Founder & CEO</span>
+      </div>
+      <div class="service-short-desc">
+        <a href="https://Anish-Kushwaha.online" target="_blank" rel="noopener noreferrer"><strong>ANISH KUSHWAHA</strong></a> — Founder & CEO of ANISH ENTERPRISES.
+      </div>
+      <div class="service-full-details" style="max-height: 1600px; padding: 1rem; margin-top: 1.2rem;">
+        <p style="text-align:center; margin-bottom:1rem;">
+          <img src="Anish.png" alt="Anish Kushwaha" style="width:min(100%,340px); border-radius:50%; border:5px solid var(--accent); box-shadow:0 0 20px rgba(3,255,200,.25);">
+        </p>
+        <p><strong>Profile:</strong> <a href="https://Anish-Kushwaha.online" target="_blank" rel="noopener noreferrer">ANISH KUSHWAHA</a> is a Full-Stack Developer, Cybersecurity Expert, and Penetration Tester building secure digital systems and innovation-focused ventures.</p>
+        <p><em>"I don't follow the universe — I reprogram it."</em></p>
+        <ul>
+          <li><strong>Portfolio:</strong> <a href="https://Anish-Kushwaha.online" target="_blank" rel="noopener noreferrer">Anish-Kushwaha.online</a></li>
+          <li><strong>GitHub:</strong> <a href="https://github.com/Anish-Kushwaha" target="_blank" rel="noopener noreferrer">https://github.com/Anish-Kushwaha</a></li>
+          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/anishkushwahaji" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/anishkushwahaji</a></li>
+          <li><strong>X (Twitter):</strong> <a href="https://twitter.com/Anish_Kushwaha_" target="_blank" rel="noopener noreferrer">https://twitter.com/Anish_Kushwaha_</a></li>
+          <li><strong>Facebook:</strong> <a href="https://www.facebook.com/AnishKushwahaji2" target="_blank" rel="noopener noreferrer">https://www.facebook.com/AnishKushwahaji2</a></li>
+          <li><strong>WhatsApp:</strong> <a href="https://wa.me/916287356552" target="_blank" rel="noopener noreferrer">https://wa.me/916287356552</a></li>
+        </ul>
+      </div>
     </div>
 
-    <div class="profile-card">
-      <img class="profile-image" src="Piyu, Asst.CEO.jpg" alt="Priyanshi Bairagi">
-      <h3 class="profile-name">Priyanshi Bairagi</h3>
-      <p class="profile-role">Assistant CEO (Asst. CEO)</p>
-      <p class="section-note">Acts as executive proxy to the CEO, coordinating continuity, leadership support, and board-level responsibilities.</p>
+    <div class="service-card expanded" data-service="md">
+      <div class="service-header">
+        <i class="fas fa-shield-alt service-icon"></i>
+        <span class="service-title">Executive Team • Managing Director (MD)</span>
+      </div>
+      <div class="service-short-desc">Bhavya Pandey — Managing Director (MD)</div>
+      <div class="service-full-details" style="max-height: 1000px; padding: 1rem; margin-top: 1.2rem;">
+        <p style="text-align:center; margin-bottom:1rem;">
+          <img src="Bhavya, MD.jpg" alt="Bhavya Pandey, Managing Director" style="width:min(100%,280px); border-radius:50%; border:4px solid #c7972f; box-shadow:0 0 18px rgba(199,151,47,.35);">
+        </p>
+        <p><strong>Bhavya Pandey</strong> leads the administrative and management operations of ANISH ENTERPRISES and plays a strategic leadership role in execution and growth.</p>
+      </div>
+    </div>
+
+    <div class="service-card expanded" data-service="asst-ceo">
+      <div class="service-header">
+        <i class="fas fa-user-tie service-icon"></i>
+        <span class="service-title">Executive Team • Asst. CEO</span>
+      </div>
+      <div class="service-short-desc">Priyanshi Bairagi — Assistant CEO (Asst. CEO)</div>
+      <div class="service-full-details" style="max-height: 1000px; padding: 1rem; margin-top: 1.2rem;">
+        <p style="text-align:center; margin-bottom:1rem;">
+          <img src="Piyu, Asst.CEO.jpg" alt="Priyanshi Bairagi, Assistant CEO" style="width:min(100%,280px); border-radius:50%; border:4px solid #c7972f; box-shadow:0 0 18px rgba(199,151,47,.35);">
+        </p>
+        <p><strong>Priyanshi Bairagi</strong> acts as a key executive proxy to the CEO and supports leadership operations, board coordination, and continuity of executive decisions.</p>
+      </div>
     </div>
   </div>
 </main>
@@ -1031,6 +1042,17 @@
 </footer>
 
 <script>
+  // Toggle service card expansion (identical logic to ventures)
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A' || e.target.closest('a')) {
+        e.stopPropagation();
+        return;
+      }
+      this.classList.toggle('expanded');
+    });
+  });
+
   // Active nav highlight for CONTACT page
   const currentPath = window.location.pathname;
   document.querySelectorAll('.nav-links a').forEach(link => {
